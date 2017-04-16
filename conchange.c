@@ -9,11 +9,11 @@ int cnt =0 ;
 clock_t begin;
 
 void starttimer(){
-    begin = omp_get_wtime();
+    begin = clock();
 }
 
 void endtimer(){
-    clock_t end = omp_get_wtime();
+    clock_t end = clock();
     double elapsed = (double)(end - begin) / CLOCKS_PER_SEC;
     printf("\nelapsed: %f\n seconds",elapsed);
 }
