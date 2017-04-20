@@ -1,4 +1,5 @@
 coinnorm.c is the Sequential Code
+
 conchange.c is the Parellized Code
 
 compiling and running the Sequential Code
@@ -17,6 +18,7 @@ input to the programe
 48 6 34 50 49 36 30 35 40 41 17 43 39 13 4 20 19 2 46 7 38 33 28 18 21
 
 First line indicates m n  where m is the number total amount and n is the number of coins.
+
 Second line indicates n different coins
 
 
