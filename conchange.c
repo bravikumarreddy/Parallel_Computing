@@ -4,20 +4,20 @@
 #include <time.h>
 #include <math.h>
 #include <omp.h>
+
+long long timer(void)
+{
+  struct timeval tv;
+  gettimeofday(&tv, NULL);
+  return (tv.tv_sec*1000000+tv.tv_usec);
+}
+
+void print_time(long long time)
+{
+	printf("%f\n",time/1000000.0);
+}
+
 int cnt =0 ;
-
-clock_t begin;
-
-void starttimer(){
-    begin = clock();
-}
-
-void endtimer(){
-    clock_t end = clock();
-    double elapsed = (double)(end - begin) / CLOCKS_PER_SEC;
-    printf("\nelapsed: %f\n seconds",elapsed);
-}
-
 int count( int S[], int m, int	 n )
 {
     
@@ -58,10 +58,16 @@ int main()
     }
     
     int m = sizeof(arr)/sizeof(arr[0]);
-    starttimer();
+   
+    long long time=timer();
+   
+    
+    
+   
     #pragma omp parallel
     #pragma omp single
     printf("%d ", count(arr, coins, amount));
-    endtimer();
+    
+    print_time( timer() - time );
     return 0;
 }
